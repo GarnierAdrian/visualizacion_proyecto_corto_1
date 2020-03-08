@@ -53,6 +53,7 @@ class BarGraphicPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
         title: Text("GRAFICO DE BARRAS"),
+        centerTitle: true,
       ),
       body: Center(
           child: BarMaker(

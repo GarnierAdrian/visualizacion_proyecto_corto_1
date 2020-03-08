@@ -1,6 +1,7 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'data_model.dart';
+import 'create_bar_graphic.dart';
 
 //define how the bar chart will be constructed
 
