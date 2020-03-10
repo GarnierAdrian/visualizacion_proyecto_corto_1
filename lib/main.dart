@@ -3,14 +3,49 @@
 import 'package:flutter/material.dart';
 import 'bar_graphic.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MaterialApp(home: Home()));
 
-class MyApp extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: BarGraphicPage(),
+
+    return Scaffold(
+        appBar: AppBar(
+        title: Text("PROYECTO CORTO UNO"),
+    centerTitle: true,
+    ),
+    body: Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: createButtons(context, Colors.cyan, [
+            ["Bars", BarGraphicPage()],
+            ["Bubbles"],
+            ["Glifo"],
+          ])
+      ),
+    ),
     );
+}
+
+
+
+  List<Widget> createButtons(BuildContext context, Color color ,List<dynamic> buttonsInfo){
+    List<Widget> ret = new List<Widget>();
+    for(List button in buttonsInfo){
+      ret.add(FlatButton(
+        color: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+        child: Text(button[0], textScaleFactor: 2, style: TextStyle(color: Colors.white),),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => button[1]));
+        },
+      )
+      );
+    }
+    return ret;
   }
 }
+
+
+
+
