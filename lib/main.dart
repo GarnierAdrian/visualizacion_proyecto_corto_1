@@ -2,6 +2,8 @@
 // and path_provider: ^0.4.1
 import 'package:flutter/material.dart';
 import 'bar_graphic.dart';
+import 'pie_chart.dart';
+
 
 void main() => runApp(MaterialApp(home: Home()));
 
@@ -20,7 +22,7 @@ class Home extends StatelessWidget {
           children: createButtons(context, Colors.cyan, [
             ["Bars", BarGraphicPage()],
             ["Bubbles"],
-            ["Glifo"],
+            ["Glifo", PieChartPage()],
           ])
       ),
     ),
