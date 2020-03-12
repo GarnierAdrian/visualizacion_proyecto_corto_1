@@ -18,7 +18,7 @@ class Home extends StatelessWidget {
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: createButtons(context, Colors.cyan, [
-            ["Bars", BarGraphicPage()],
+            ["Bars", StackedHorizontalBarChart.withSampleData()],
             ["Bubbles"],
             ["Glifo"],
           ])
