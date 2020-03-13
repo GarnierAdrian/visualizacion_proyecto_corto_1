@@ -6,14 +6,12 @@ class StackedHorizontalBarChart extends StatelessWidget {
   final bool animate;
 
   StackedHorizontalBarChart(this.seriesList, {this.animate});
-
   factory StackedHorizontalBarChart.withSampleData() {
     return new StackedHorizontalBarChart(
       _createSampleData(),
       animate: false,
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +28,10 @@ class StackedHorizontalBarChart extends StatelessWidget {
                 style: Theme.of(context).textTheme.body2
               ),
               Expanded(
-                child: charts.BarChart(seriesList, animate: true,
+                child:
+                charts.BarChart(seriesList, animate: true,
                       barGroupingType: charts.BarGroupingType.stacked,
-                      vertical: true,
+                      vertical: false,
                 ),
               )
             ],
@@ -43,54 +42,52 @@ class StackedHorizontalBarChart extends StatelessWidget {
   }
 
   /// Create series list with multiple series
-  static List<charts.Series<OrdinalSales, String>> _createSampleData() {
-    final Hombre = [
+  static List<charts.Series<OrdinalScales, String>> _createSampleData() {
+    final HombreData = [
       // new OrdinalSales('Costa Rica',218395,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('San Jose',70690,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Cartago',21716,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Heredia',20589,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Alajuela',41867,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Guanacaste',17517,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Limon',22216,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalSales('Puntarenas',23800,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('San Jose',70690,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Cartago',21716,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Heredia',20589,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Alajuela',41867,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Guanacaste',17517,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Limon',22216,charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('Puntarenas',23800,charts.ColorUtil.fromDartColor(Colors.green)),
     ];
 
-    final Mujer = [
+    final MujerData = [
       // new OrdinalSales('Costa Rica',234454,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('San Jose',84959,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Cartago',23196,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Heredia',22576,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Alajuela',41999,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Guanacaste',18130,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Limon',21075,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalSales('Puntarenas',22519,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('San Jose',84959,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Cartago',23196,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Heredia',22576,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Alajuela',41999,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Guanacaste',18130,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Limon',21075,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('Puntarenas',22519,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
     ];
-
 
     return [
-      new charts.Series<OrdinalSales, String>(
+      new charts.Series<OrdinalScales, String>(
         id: 'Hombre',
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
-        colorFn: (OrdinalSales sales, _) => sales.color,
-        data: Hombre,
+        domainFn: (OrdinalScales sales, _) => sales.year,
+        measureFn: (OrdinalScales sales, _) => sales.sales,
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        data: HombreData,
       ),
-      new charts.Series<OrdinalSales, String>(
+      new charts.Series<OrdinalScales, String>(
         id: 'Mujer',
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
-        colorFn: (OrdinalSales sales, _) => sales.color,
-        data: Mujer,
+        domainFn: (OrdinalScales sales, _) => sales.year,
+        measureFn: (OrdinalScales sales, _) => sales.sales,
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        data: MujerData,
       ),
     ];
   }
 
-
 }
 
-class OrdinalSales {
+class OrdinalScales {
   final String year;
   final int sales;
   final charts.Color color;
-  OrdinalSales(this.year, this.sales,this.color);
+  OrdinalScales(this.year, this.sales,this.color);
 }
