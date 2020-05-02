@@ -33,7 +33,12 @@ class PieMaker extends StatelessWidget {
                     .body2,
               ),
               Expanded(
-                child: charts.PieChart(seriesList, animate: true),
+                child:charts.PieChart(seriesList,
+                  animate: animate,
+                  defaultRenderer: new charts.ArcRendererConfig(arcRendererDecorators: [
+                    new charts.ArcLabelDecorator(
+                        labelPosition: charts.ArcLabelPosition.auto)
+                  ])),
               )
             ],
           ),
@@ -46,9 +51,9 @@ class PieMaker extends StatelessWidget {
   static List<charts.Series<OrdinalScales, String>> _createSampleData() {
     final CData = [
 // new OrdinalSales('Costa Rica',218395,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalScales('San Jose', 70690, charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalScales('s', 900690, charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalScales('a', 900690, charts.ColorUtil.fromDartColor(Colors.deepOrange)),
+      new OrdinalScales('VERDE', 70690, charts.ColorUtil.fromDartColor(Colors.green)),
+      new OrdinalScales('MORADO', 900690, charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+      new OrdinalScales('NARANJA', 900690, charts.ColorUtil.fromDartColor(Colors.deepOrange)),
     ];
 
     return [
@@ -57,6 +62,7 @@ class PieMaker extends StatelessWidget {
         domainFn: (OrdinalScales sales, _) => sales.year,
         measureFn: (OrdinalScales sales, _) => sales.subscribers,
         colorFn: (OrdinalScales sales, _) => sales.barColor,
+        labelAccessorFn: ( OrdinalScales row, _) => '${row.year}',
         data: CData,
       ),
     ];

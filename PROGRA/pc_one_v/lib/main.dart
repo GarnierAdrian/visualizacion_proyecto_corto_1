@@ -44,7 +44,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample> {
               icon: Icon(null), //`Icon` to display
               label: Text('Burbuja'), //`Text` to display3
               onPressed: () {
-                _select(choices[1]);
+                _select(choices[2]);
               },
             ),
             FlatButton.icon(
@@ -52,7 +52,7 @@ class _BasicAppBarSampleState extends State<BasicAppBarSample> {
               icon: Icon(null), //`Icon` to display
               label: Text('Pie'), //`Text` to display3
               onPressed: () {
-                _select(choices[2]);;
+                _select(choices[1]);;
               },
             ),
           ],
