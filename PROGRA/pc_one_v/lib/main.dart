@@ -3,9 +3,11 @@
 
 import 'make_bar_graphic.dart';
 import 'make_pie_graphic.dart';
+import 'make_bubble_graphic.dart';
+
 import 'package:flutter/material.dart';
 
-final List<StatelessWidget> items = [ StackedHorizontalBarChart.withSampleData(), PieMaker.withSampleData()];
+final List<StatelessWidget> items = [ StackedHorizontalBarChart.withSampleData(), PieMaker.withSampleData(), BubbleMaker.withSampleData()];
 
 class BasicAppBarSample extends StatefulWidget {
   @override
