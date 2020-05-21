@@ -35,7 +35,14 @@ class BubbleMaker extends StatelessWidget {
                     .body2,
               ),
               Expanded(
-                child:charts.ScatterPlotChart(seriesList, animate: animate,
+                child:charts.ScatterPlotChart(seriesList,
+                  behaviors: [
+                    new charts.SeriesLegend(position: charts.BehaviorPosition.start
+                      ,          horizontalFirst: false,),
+
+                  ],
+
+                  animate: animate,
 
                 )
               )
@@ -48,20 +55,85 @@ class BubbleMaker extends StatelessWidget {
 
   /// Create series list with multiple series
   static List<charts.Series<OrdinalScales, int>> _createSampleData() {
-    final CData = [
-// new OrdinalSales('Costa Rica',218395,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalScales(0, 5, 3.0),
-      new OrdinalScales(10, 25, 3.0),
-      new OrdinalScales(12, 75, 2.0)
+    final sanjose = [
+      new OrdinalScales(53, 205526, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
     ];
+    final alajuela = [
+      new OrdinalScales(53, 113462, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+    final cartago = [
+      new OrdinalScales(52, 58970, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+    final heredia = [
+      new OrdinalScales(52, 58970, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+    final guanacaste = [
+      new OrdinalScales(54, 48566, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+    final puntarenas = [
+      new OrdinalScales(53, 63719, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+    final limon = [
+      new OrdinalScales(51, 57845, 15.0,charts.ColorUtil.fromDartColor(Colors.deepPurple)),
+    ];
+
 
     return [
       new charts.Series<OrdinalScales, int>(
-        id: 'Data',
+        id: 'San José',
+        colorFn: (OrdinalScales sales, _) => sales.color,
         domainFn: (OrdinalScales sales, _) => sales.x,
         measureFn: (OrdinalScales sales, _) => sales.y,
         radiusPxFn: (OrdinalScales sales, _) => sales.size,
-        data: CData,
+        data: sanjose,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Alajuela',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: alajuela,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Cartago',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: cartago,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Heredia',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: heredia,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Puntarenas',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: puntarenas,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Guanacaste',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: guanacaste,
+      ),
+      new charts.Series<OrdinalScales, int>(
+        id: 'Limón',
+        colorFn: (OrdinalScales sales, _) => sales.color,
+        domainFn: (OrdinalScales sales, _) => sales.x,
+        measureFn: (OrdinalScales sales, _) => sales.y,
+        radiusPxFn: (OrdinalScales sales, _) => sales.size,
+        data: limon,
       ),
     ];
   }
@@ -72,6 +144,7 @@ class OrdinalScales {
   final int x;
   final int y;
   final double size;
-  OrdinalScales(this.x,this.y,this.size);
+  final charts.Color color;
+  OrdinalScales(this.x,this.y,this.size,this.color);
 }
 
