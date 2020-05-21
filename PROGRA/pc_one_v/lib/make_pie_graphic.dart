@@ -51,9 +51,14 @@ class PieMaker extends StatelessWidget {
   static List<charts.Series<OrdinalScales, String>> _createSampleData() {
     final CData = [
 // new OrdinalSales('Costa Rica',218395,charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalScales('VERDE', 70690, charts.ColorUtil.fromDartColor(Colors.green)),
-      new OrdinalScales('MORADO', 900690, charts.ColorUtil.fromDartColor(Colors.deepPurple)),
-      new OrdinalScales('NARANJA', 900690, charts.ColorUtil.fromDartColor(Colors.deepOrange)),
+      new OrdinalScales('San José', 205526, charts.ColorUtil.fromDartColor(Colors.deepPurpleAccent)),
+      new OrdinalScales('Cartago', 58970, charts.ColorUtil.fromDartColor(Colors.blue)),
+      new OrdinalScales('Alajuela', 113462, charts.ColorUtil.fromDartColor(Colors.red)),
+      new OrdinalScales('Heredia', 55124, charts.ColorUtil.fromDartColor(Colors.yellow)),
+      new OrdinalScales('Puntarenas', 57845, charts.ColorUtil.fromDartColor(Colors.orange)),
+      new OrdinalScales('Guanacaste', 48566, charts.ColorUtil.fromDartColor(Colors.brown)),
+      new OrdinalScales('Limón', 57845, charts.ColorUtil.fromDartColor(Colors.green)),
+
     ];
 
     return [
