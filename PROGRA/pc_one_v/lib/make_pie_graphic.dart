@@ -26,19 +26,19 @@ class PieMaker extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "CENSO 2011",
-                style: Theme
+                "Distribución de personas con discapaidad en las provincias el 2011",
+               style: Theme
                     .of(context)
                     .textTheme
                     .body2,
               ),
               Expanded(
                 child:charts.PieChart(seriesList,
-                  animate: animate,
-                  defaultRenderer: new charts.ArcRendererConfig(arcRendererDecorators: [
-                    new charts.ArcLabelDecorator(
-                        labelPosition: charts.ArcLabelPosition.auto)
-                  ])),
+                    animate: animate,
+                    behaviors: [new charts.DatumLegend(position: charts.BehaviorPosition.start
+                      ,          horizontalFirst: false,)],
+                    defaultRenderer: new charts.ArcRendererConfig(arcRendererDecorators: [
+                    ])),
               )
             ],
           ),
@@ -81,4 +81,3 @@ class OrdinalScales {
   final charts.Color barColor;
   OrdinalScales(this.year,this.subscribers,this.barColor);
 }
-

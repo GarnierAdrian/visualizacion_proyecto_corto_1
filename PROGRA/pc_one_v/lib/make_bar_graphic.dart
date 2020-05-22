@@ -24,7 +24,7 @@ class StackedHorizontalBarChart extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Text(
-                "CENSO 2011: PERSONAS CON DISCAPACIDAD TIPIFICADO POR SEXO Y PROVINCIA",
+                "Personas con discapacidad tipificado por sexy y provincia el 2011",
                 style: Theme.of(context).textTheme.body2
               ),
               Expanded(
